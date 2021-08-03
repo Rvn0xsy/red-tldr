@@ -1,0 +1,4 @@
+
+[red-tldr]
+  auto-update = true
+  path = "~/red-tldr-db/"
