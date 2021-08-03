@@ -31,10 +31,15 @@ $ go build
 
 #### 二进制安装
 
+下载 [Release](https://github.com/Rvn0xsy/red-tldr/releases/) 版本。
+
 ```bash
-$ wget https://github.com/Rvn0xsy/red-tldr/releases/download/latest/red-tldr.zip
-$ unzip red-tldr.zip
+$ tar -zxvf red-tldr_latest_linux_amd64.tar.gz
+$ ./red-tldr
 ```
+
+It is recommended to add red-tldr to the environment variables of the current user
+
 ### 3. 初始化配置文件
 
 ```bash
