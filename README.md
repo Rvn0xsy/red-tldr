@@ -5,6 +5,8 @@
 
 [English](./README.md) | [中文简体](./README-zh.md)
 
+[![GitHub release](https://img.shields.io/github/release/Rvn0xsy/red-tldr.svg)](https://github.com/Rvn0xsy/red-tldr/releases)
+
 ## What is Red Team TL;DR ?
 
 red-tldr is a lightweight text search tool, which is used to help red team staff quickly find the commands and key points they want to execute, so it is more suitable for use by red team personnel with certain experience.
@@ -80,3 +82,7 @@ Interested in getting involved? We would like to help you!
 * Sorry for my poor English. Improvements for this document are welcome, even some typo fixes.
 * If you have great ideas, send an email to rvn0xsy@gmail.com.
 
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/Rvn0xsy/red-tldr.svg)](https://starchart.cc/Rvn0xsy/red-tldr)

@@ -2,6 +2,8 @@
 
 [English](./README.md) | [中文简体](./README-zh.md)
 
+[![GitHub release](https://img.shields.io/github/release/Rvn0xsy/red-tldr.svg)](https://github.com/Rvn0xsy/red-tldr/releases)
+
 ## 什么是 Red Team TL;DR ?
 
 red-tldr 是一个轻量级的文本搜索工具，它用于帮助红队工作人员快速的寻找到想要执行的命令、关键点，因此它比较适用于有一定经验的红队人员使用。
@@ -85,3 +87,7 @@ red-tldr 是一个免费且开源的项目，我们欢迎任何人为其开发�
 * 如果你有任何其他方面的问题或合作，欢迎发送邮件至 rvn0xsy@gmail.com 。
 
 **提醒：和项目相关的问题最好在 [issues](https://github.com/Rvn0xsy/red-tldr/issues) 中反馈，这样方便其他有类似问题的人可以快速查找解决方法，并且也避免了我们重复回答一些问题。**
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/Rvn0xsy/red-tldr.svg)](https://starchart.cc/Rvn0xsy/red-tldr)
