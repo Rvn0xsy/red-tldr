@@ -34,9 +34,12 @@ $ go build
 #### For Binary
 
 ```bash
-$ wget https://github.com/Rvn0xsy/red-tldr/releases/download/latest/red-tldr.zip
-$ unzip red-tldr.zip
+$ wget https://github.com/Rvn0xsy/red-tldr/releases/download/v0.2/red-tldr_latest_linux_amd64.tar.gz
+$ tar -zxvf red-tldr_latest_linux_amd64.tar.gz
+$ ./red-tldr
 ```
+
+> It is recommended to add red-tldr to the environment variables of the current user
 
 ### 3. Init Config File
 
@@ -66,3 +69,13 @@ Select Number : 0
 > When there are multiple results, you can follow the digital index to determine the result output
 
 ![Select-Number](./images/img_3.png)
+
+## Contributing
+
+Interested in getting involved? We would like to help you!
+
+* Take a look at our [issues list](https://github.com/Rvn0xsy/red-tldr/issues) and consider sending a Pull Request to **dev branch**.
+* If you want to add a new feature, please create an issue first to describe the new feature, as well as the implementation approach. Once a proposal is accepted, create an implementation of the new features and submit it as a pull request.
+* Sorry for my poor English. Improvements for this document are welcome, even some typo fixes.
+* If you have great ideas, send an email to rvn0xsy@gmail.com.
+

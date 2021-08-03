@@ -32,9 +32,13 @@ $ go build
 #### 二进制安装
 
 ```bash
-$ wget https://github.com/Rvn0xsy/red-tldr/releases/download/latest/red-tldr.zip
-$ unzip red-tldr.zip
+$ wget https://github.com/Rvn0xsy/red-tldr/releases/download/v0.2/red-tldr_latest_linux_amd64.tar.gz
+$ tar -zxvf red-tldr_latest_linux_amd64.tar.gz
+$ ./red-tldr
 ```
+
+> It is recommended to add red-tldr to the environment variables of the current user
+
 ### 3. 初始化配置文件
 
 ```bash
@@ -64,3 +68,18 @@ Select Number : 0
 > 当存在多个结果时，可以跟进数字索引决定结果输出
 
 ![Select-Number](./images/img_3.png)
+
+## 贡献
+
+## 为 red-tldr 做贡献
+
+red-tldr 是一个免费且开源的项目，我们欢迎任何人为其开发和进步贡献力量。
+
+* 在使用过程中出现任何问题，可以通过 [issues](https://github.com/Rvn0xsy/red-tldr/issues) 来反馈。
+* Bug 的修复可以直接提交 Pull Request 到 dev 分支。
+* 如果是增加新的功能特性，请先创建一个 issue 并做简单描述以及大致的实现方法，提议被采纳后，就可以创建一个实现新特性的 Pull Request。
+* 欢迎对说明文档做出改善，帮助更多的人使用 red-tldr，特别是英文文档。
+* 贡献代码请提交 PR 至 dev 分支，master 分支仅用于发布稳定可用版本。
+* 如果你有任何其他方面的问题或合作，欢迎发送邮件至 rvn0xsy@gmail.com 。
+
+**提醒：和项目相关的问题最好在 [issues](https://github.com/Rvn0xsy/red-tldr/issues) 中反馈，这样方便其他有类似问题的人可以快速查找解决方法，并且也避免了我们重复回答一些问题。**
