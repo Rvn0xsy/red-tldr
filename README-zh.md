@@ -31,8 +31,10 @@ $ go build
 
 #### 二进制安装
 
+
+下载 [Release](https://github.com/Rvn0xsy/red-tldr/releases/) 版本。
+
 ```bash
-$ wget https://github.com/Rvn0xsy/red-tldr/releases/download/v0.2/red-tldr_latest_linux_amd64.tar.gz
 $ tar -zxvf red-tldr_latest_linux_amd64.tar.gz
 $ ./red-tldr
 ```
