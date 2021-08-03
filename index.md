@@ -3,7 +3,7 @@
 
 # Red Team TL;DR
 
-[English](./README.md) | [中文简体](./README-zh.md)
+[English](./index.md) | [中文简体](./README-zh.md)
 
 ## What is Red Team TL;DR ?
 
