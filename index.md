@@ -18,7 +18,7 @@ In my daily work, I need to memorize a lot of commands. Most of me only know the
 ### 1. Synchronize Search Data
 
 ```bash
-$ git clone https://gthub.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
+$ git clone https://github.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
 ```
 
 ### 2. Install Red Team TL;DR
@@ -26,7 +26,7 @@ $ git clone https://gthub.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
 #### For Git Install
 
 ```bash
-$ git clone https://gthub.com/Rvn0xsy/red-tldr
+$ git clone https://github.com/Rvn0xsy/red-tldr
 $ cd red-tldr
 $ go build
 ```
@@ -41,11 +41,6 @@ $ ./red-tldr
 
 > It is recommended to add red-tldr to the environment variables of the current user
 
-### 3. Init Config File
-
-```bash
-$ red-tldr search init
-```
 
 ## Example
 
