@@ -18,7 +18,7 @@ red-tldr 是一个轻量级的文本搜索工具，它用于帮助红队工作�
 ### 1. 同步搜索数据
 
 ```bash
-$ git clone https://gthub.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
+$ git clone https://github.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
 ```
 
 ### 2. 安装 red-tldr
@@ -26,7 +26,7 @@ $ git clone https://gthub.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
 #### Git安装
 
 ```bash
-$ git clone https://gthub.com/Rvn0xsy/red-tldr
+$ git clone https://github.com/Rvn0xsy/red-tldr
 $ cd red-tldr
 $ go build
 ```

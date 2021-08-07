@@ -28,7 +28,7 @@ $ git clone https://gthub.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
 #### For Git Install
 
 ```bash
-$ git clone https://gthub.com/Rvn0xsy/red-tldr
+$ git clone https://github.com/Rvn0xsy/red-tldr
 $ cd red-tldr
 $ go build
 ```
