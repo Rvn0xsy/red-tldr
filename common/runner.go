@@ -4,7 +4,6 @@ import (
 	"log"
 	"os"
 	"red-tldr/pkg"
-	"red-tldr/utils"
 )
 
 func Runner(flagStruct * FlagStruct){
@@ -12,11 +11,6 @@ func Runner(flagStruct * FlagStruct){
 	case "search":
 		log.Println("[Search Module is Running]...")
 		defer log.Println("[Search Module is Done.]")
-		if flagStruct.SearchFlag.Init {
-			utils.GenerateConfig()
-			break
-		}
-
 		if flagStruct.SearchFlag.Update{
 			log.Println("[Search Module is Updating]...")
 			pkg.UpdateDb()
@@ -28,6 +22,9 @@ func Runner(flagStruct * FlagStruct){
 			}
 			pkg.SelectOneResult(fileList)
 		}
+		break
+	case "update":
+		pkg.GetLatestReleaseFromGithub()
 		break
 	default:
 		log.Println("other...")

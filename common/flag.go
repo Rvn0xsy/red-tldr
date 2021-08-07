@@ -9,8 +9,8 @@ import (
 func SetFlag(flagStruct * FlagStruct)  {
 	var err error
 	flagSearch := flag.NewFlagSet("search", flag.ExitOnError)
+	flagUpdate := flag.NewFlagSet("update", flag.ExitOnError)
 	flagSearch.BoolVar(&flagStruct.SearchFlag.Update, "update",false,"Update Search DB.")
-	flagSearch.BoolVar(&flagStruct.SearchFlag.Init, "init",false,"Init Search DB.")
 
 	if len(os.Args) < 2{
 		utils.ShowBanner()
@@ -20,6 +20,9 @@ func SetFlag(flagStruct * FlagStruct)  {
 	switch os.Args[1] {
 	case "search":
 		err = flagSearch.Parse(os.Args[2:])
+		utils.CheckErrorOnExit(err)
+	case "update":
+		err = flagUpdate.Parse(os.Args[2:])
 		utils.CheckErrorOnExit(err)
 	default:
 		utils.ShowHelp()

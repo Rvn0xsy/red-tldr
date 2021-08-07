@@ -18,9 +18,9 @@ var (
 	SearchDbName = ""
 )
 
-func SetDbDir(path string)  {
-	SearchDbDir = strings.Replace(path,"~",os.Getenv("HOME"),1)
-	SearchDbName = SearchDbDir+"db/db.json"
+func SetDbDir()  {
+	SearchDbDir = utils.GetDatabasePath()
+	SearchDbName = utils.GetDatabaseFilePath()
 }
 
 type SearchDataStruct struct {
@@ -64,7 +64,7 @@ func Search(file string,keyword string)  {
 
 func ShowDetails(file string)  {
 	Data := new(SearchDataStruct)
-	yamlFile, err := ioutil.ReadFile(SearchDbDir+file)
+	yamlFile, err := ioutil.ReadFile(SearchDbDir+ utils.GetPathSeparator() + file)
 	utils.CheckErrorOnExit(err)
 	err = yaml.Unmarshal(yamlFile, Data)
 	utils.CheckErrorOnExit(err)
@@ -89,7 +89,7 @@ func SelectOneResult(fileList []string)  {
 	}
 
 	count = len(fileList)
-	fmt.Print(fmt.Sprintf("[Count : %d] > Select Result Number :",count))
+	fmt.Print(fmt.Sprintf("[Count : %d] > Select Result Number : ",count))
 	_, err := fmt.Scanf("%d", &i)
 	fmt.Println(i)
 	if err != nil{
@@ -137,10 +137,8 @@ func UpdateDb()  {
 		}
 		if strings.HasSuffix(fileName.Name(), ".yaml") {
 			func(file fs.FileInfo){
-				readFileName := SearchDbDir + fileName.Name()
-				//log.Println(readFileName)
+				readFileName := SearchDbDir + utils.GetPathSeparator() +fileName.Name()
 				Data := getDataStruct(readFileName)
-				//log.Println(Data.Tags)
 				DbStruct.Data = append(DbStruct.Data,DataStruct{
 					Name: Data.Name,
 					Tags: Data.Tags,

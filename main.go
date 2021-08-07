@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/spf13/viper"
 	"red-tldr/common"
 	"red-tldr/pkg"
@@ -11,17 +10,18 @@ import (
 func init() {
 	viper.SetConfigName("config")
 	viper.SetConfigType("toml")
-	viper.AddConfigPath("config")
-	viper.AddConfigPath("$HOME/.red-tldr/")
+	viper.AddConfigPath(utils.GetConfigPath())
 	err := viper.ReadInConfig()
 	if err != nil {
-		fmt.Println("Not Found config file.")
 		utils.GenerateConfig()
-		// panic(fmt.Errorf("Fatal error config file: %w \n", err))
 	}
-	
-	pkg.SetDbDir(viper.GetString("red-tldr.path"))
-	if viper.GetBool("red-tldr.auto-update") {
+
+	pkg.SetDbDir()
+
+	if utils.CheckDatabaseExist() == false || viper.GetBool("red-tldr.github-update"){
+		pkg.GetLatestReleaseFromGithub()
+	}
+	if viper.GetBool("red-tldr.index-update") {
 		pkg.UpdateDb()
 	}
 }

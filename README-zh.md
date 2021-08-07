@@ -15,13 +15,9 @@ red-tldr 是一个轻量级的文本搜索工具，它用于帮助红队工作�
 
 ## 快速开始
 
-### 1. 同步搜索数据
+> **新版本已经支持自动更新数据库！**
 
-```bash
-$ git clone https://github.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
-```
-
-### 2. 安装 red-tldr
+### 安装 red-tldr
 
 #### Git安装
 
@@ -41,7 +37,7 @@ $ tar -zxvf red-tldr_latest_linux_amd64.tar.gz
 $ ./red-tldr
 ```
 
-> It is recommended to add red-tldr to the environment variables of the current user
+> 建议将red-tldr加入你的环境变量中进行使用
 
 
 ## 简单示例
@@ -67,6 +63,40 @@ Select Number : 0
 > 当存在多个结果时，可以跟进数字索引决定结果输出
 
 ![Select-Number](./images/img_3.png)
+
+
+3. 更新索引文件
+
+```bash
+$ red-tldr search update
+```
+
+4. 更新数据库文件
+
+```bash
+$ red-tldr update
+```
+
+
+## 配置文件
+
+默认配置文件路径：`HOME/.red-tldr/config.toml`
+
+```
+[red-tldr]
+  index-update = false
+  github-update = false
+  path = ""
+```
+
+|    配置项   | 描述 |  类型  |
+| ----------- | ----------- |  ----------- |
+| index-update| 数据库索引文件是否自动更新   |   Bool |
+| github-update   |  数据库文件是否从github自动更新 | Bool |
+| path  | 数据库文件存放路径 | string |
+
+
+
 
 ## 贡献
 

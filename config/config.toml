@@ -1,4 +1,4 @@
-
 [red-tldr]
-  auto-update = true
-  path = "~/red-tldr-db/"
+  index-update = false
+  github-update = false
+  path = ""
