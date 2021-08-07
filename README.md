@@ -44,11 +44,6 @@ $ ./red-tldr
 
 > It is recommended to add red-tldr to the environment variables of the current user
 
-### 3. Init Config File
-
-```bash
-$ red-tldr search init
-```
 
 ## Example
 

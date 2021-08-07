@@ -5,6 +5,7 @@ import (
 	"github.com/spf13/viper"
 	"red-tldr/common"
 	"red-tldr/pkg"
+	"red-tldr/utils"
 )
 
 func init() {
@@ -14,7 +15,9 @@ func init() {
 	viper.AddConfigPath("$HOME/.red-tldr/")
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(fmt.Errorf("Fatal error config file: %w \n", err))
+		fmt.Println("Not Found config file.")
+		utils.GenerateConfig()
+		// panic(fmt.Errorf("Fatal error config file: %w \n", err))
 	}
 	
 	pkg.SetDbDir(viper.GetString("red-tldr.path"))

@@ -43,11 +43,6 @@ $ ./red-tldr
 
 > It is recommended to add red-tldr to the environment variables of the current user
 
-### 3. 初始化配置文件
-
-```bash
-$ red-tldr search init
-```
 
 ## 简单示例
 
