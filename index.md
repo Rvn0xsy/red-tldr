@@ -15,13 +15,7 @@ In my daily work, I need to memorize a lot of commands. Most of me only know the
 
 ## Quick start
 
-### 1. Synchronize Search Data
-
-```bash
-$ git clone https://github.com/Rvn0xsy/red-tldr-db ~/red-tldr-db/
-```
-
-### 2. Install Red Team TL;DR
+### Install Red Team TL;DR
 
 #### For Git Install
 
@@ -64,6 +58,38 @@ Select Number : 0
 > When there are multiple results, you can follow the digital index to determine the result output
 
 ![Select-Number](./images/img_3.png)
+
+
+3. Update index file
+
+```bash
+$ red-tldr search update
+```
+
+4. Update database file
+
+```bash
+$ red-tldr update
+```
+
+## Configuration file
+
+Default configuration file path:`HOMEDIR/.red-tldr/config.toml`
+
+
+```
+[red-tldr]
+  index-update = false
+  github-update = false
+  path = ""
+```
+
+
+|    Configuration item   | Description |  Type  |
+| ----------- | ----------- |  ----------- |
+| index-update| Whether the database index file is automatically updated   |   Bool |
+| github-update   |  Whether the database file is automatically updated from github | Bool |
+| path  | Database file storage path | string |
 
 ## Contributing
 
