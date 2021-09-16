@@ -24,8 +24,11 @@ func SetFlag(flagStruct * FlagStruct)  {
 	case "update":
 		err = flagUpdate.Parse(os.Args[2:])
 		utils.CheckErrorOnExit(err)
-	default:
+	case "help":
 		utils.ShowHelp()
+	default:
+		err = flagSearch.Parse(os.Args[2:])
+		utils.CheckErrorOnExit(err)
 	}
 
 }

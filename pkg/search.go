@@ -19,7 +19,7 @@ var (
 )
 
 func SetDbDir()  {
-	SearchDbDir = utils.GetDatabasePath()
+	SearchDbDir = utils.GetDatabasePath() + string(os.PathSeparator) + "files"
 	SearchDbName = utils.GetDatabaseFilePath()
 }
 
