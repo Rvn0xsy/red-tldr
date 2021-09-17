@@ -51,7 +51,7 @@ $ ./red-tldr
 1. 关键字搜索
 
 ```bash
-$ red-tldr search mimikatz
+$ red-tldr mimikatz
 ```
 
 ![search-mimikatz](./images/img_1.png)
@@ -59,7 +59,7 @@ $ red-tldr search mimikatz
 2. 模糊匹配
 
 ```bash
-$ red-tldr search mi
+$ red-tldr mi
 ```
 
 ![Fuzzy-match](./images/img_2.png)
@@ -74,13 +74,13 @@ Select Number : 0
 3. 更新索引文件
 
 ```bash
-$ red-tldr search update
+$ red-tldr update
 ```
 
 4. 更新数据库文件
 
 ```bash
-$ red-tldr update
+$ red-tldr upgrade
 ```
 
 

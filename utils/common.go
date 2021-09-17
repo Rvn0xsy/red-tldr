@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 	"path"
+	"path/filepath"
+	"strings"
 )
 
 const (
@@ -14,13 +16,14 @@ const (
     ____/ o o \   For Red Team [TL;DR]
   /~____  =ø= /   Github @Rvn0xsy
  (______)__m_m)   Blog: https://payloads.online
-
+                  Version: 0.4.2
 ------------------------------------------------
 Thank you for Use https://github.com/Rvn0xsy/red-tldr`
 	configName = "config.toml"
 	databaseName = string(os.PathSeparator) + "db" + string(os.PathSeparator) + "db.json"
 	configDir = string(os.PathSeparator) + ".red-tldr" + string(os.PathSeparator)
 	databaseDir = string(os.PathSeparator) + "red-tldr-db" + string(os.PathSeparator)
+	DbFileSuffix = ".yaml"
 )
 
 
@@ -57,6 +60,20 @@ func GetDatabasePath()(databasePath string){
 		databasePath = path.Join(getHomeDir(), databaseDir)
 	}
 	return databasePath
+}
+
+
+func GetAllDataFile(path string) (fileList []string) {
+	filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
+		if !info.IsDir() {
+			if strings.HasSuffix(path, DbFileSuffix){
+				fmt.Println(path)
+				fileList = append(fileList, path)
+			}
+		}
+		return nil
+	})
+	return fileList
 }
 
 func GetDatabaseFilePath()(configFilePath string){
@@ -114,7 +131,8 @@ func ShowBanner()  {
 func ShowHelp()  {
 	ShowBanner()
 	fmt.Println(`
-Modules:
-	search   [search Module]
-	update   [update database from github https://github.com/Rvn0xsy/red-tldr-db]`)
+Command:
+	<Keyword> [search keyword from database index]
+	update    [update database index]
+	upgrade   [update database from github https://github.com/Rvn0xsy/red-tldr-db]`)
 }

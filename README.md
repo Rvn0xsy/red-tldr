@@ -53,7 +53,7 @@ $ ./red-tldr
 1. Keyword Search
 
 ```bash
-$ red-tldr search mimikatz
+$ red-tldr mimikatz
 ```
 
 ![search-mimikatz](./images/img_1.png)
@@ -61,7 +61,7 @@ $ red-tldr search mimikatz
 2. Fuzzy matching
 
 ```bash
-$ red-tldr search mi
+$ red-tldr mi
 ```
 
 ![Fuzzy-match](./images/img_2.png)
@@ -74,13 +74,13 @@ Select Number : 0
 3. Update index file
 
 ```bash
-$ red-tldr search update
+$ red-tldr update
 ```
 
 4. Update database file
 
 ```bash
-$ red-tldr update
+$ red-tldr upgrade
 ```
 
 ## Configuration file

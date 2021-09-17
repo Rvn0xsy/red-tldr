@@ -27,7 +27,5 @@ func init() {
 }
 
 func main() {
-	var flagArgs common.FlagStruct
-	common.SetFlag(&flagArgs)
-	common.Runner(&flagArgs)
+	common.Runner()
 }

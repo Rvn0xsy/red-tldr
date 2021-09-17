@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	yaml "gopkg.in/yaml.v2"
-	"io/fs"
 	"io/ioutil"
 	"log"
 	"os"
@@ -12,14 +11,13 @@ import (
 	"strings"
 )
 
-
 var (
 	SearchDbDir = ""
 	SearchDbName = ""
 )
 
 func SetDbDir()  {
-	SearchDbDir = utils.GetDatabasePath() + string(os.PathSeparator) + "files"
+	SearchDbDir = utils.GetDatabasePath() + string(os.PathSeparator)
 	SearchDbName = utils.GetDatabaseFilePath()
 }
 
@@ -129,23 +127,18 @@ func UpdateDb()  {
 	DbStruct := new(SearchDbStruct)
 	utils.CheckErrorOnExit(err)
 	defer DbFile.Close()
-	fileList, err := ioutil.ReadDir(SearchDbDir)
-	utils.CheckErrorOnExit(err)
-	for _, fileName := range fileList {
-		if fileName.IsDir(){
-			continue
-		}
-		if strings.HasSuffix(fileName.Name(), ".yaml") {
-			func(file fs.FileInfo){
-				readFileName := SearchDbDir + utils.GetPathSeparator() +fileName.Name()
-				Data := getDataStruct(readFileName)
-				DbStruct.Data = append(DbStruct.Data,DataStruct{
-					Name: Data.Name,
-					Tags: Data.Tags,
-					File: fileName.Name(),
-				})
-			}(fileName)
-		}
+	fileList := utils.GetAllDataFile(SearchDbDir)
+	if len(fileList) == 0 {
+		return
+	}
+	for _,fileName := range fileList {
+			Data := getDataStruct(fileName)
+			dbFilename := strings.Replace(fileName, SearchDbDir, "", 1)
+			DbStruct.Data = append(DbStruct.Data,DataStruct{
+				Name: Data.Name,
+				Tags: Data.Tags,
+				File: dbFilename,
+			})
 	}
 	DbJsonData , err := json.Marshal(DbStruct)
 	utils.CheckErrorOnExit(err)
