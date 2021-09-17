@@ -89,7 +89,7 @@ func SelectOneResult(fileList []string)  {
 	count = len(fileList)
 	fmt.Print(fmt.Sprintf("[Count : %d] > Select Result Number : ",count))
 	_, err := fmt.Scanf("%d", &i)
-	fmt.Println(i)
+	// fmt.Println(i)
 	if err != nil{
 		i = count-1
 	}
@@ -104,6 +104,9 @@ func getDataStruct(file string) (Data * DataStruct ){
 	yamlFile, err := ioutil.ReadFile(file)
 	utils.CheckErrorOnPrint(err)
 	err = yaml.Unmarshal(yamlFile, Data)
+	if err != nil{
+		fmt.Println("ERROR >>>> ", file)
+	}
 	utils.CheckErrorOnPrint(err)
 	return Data
 }

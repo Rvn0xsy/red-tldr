@@ -67,7 +67,7 @@ func GetAllDataFile(path string) (fileList []string) {
 	filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 		if !info.IsDir() {
 			if strings.HasSuffix(path, DbFileSuffix){
-				fmt.Println(path)
+				// fmt.Println(path)
 				fileList = append(fileList, path)
 			}
 		}
