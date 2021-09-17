@@ -22,6 +22,12 @@ In my daily work, I need to memorize a lot of commands. Most of me only know the
 
 ### Install Red Team TL;DR
 
+#### Mac OS Install
+
+```bash
+$ brew install red-tldr
+```
+
 #### For Git Install
 
 ```bash
