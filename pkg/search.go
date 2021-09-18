@@ -37,6 +37,11 @@ type SearchDbStruct struct {
 	Data []DataStruct`json:"data"`
 }
 
+type SearchResultStruct struct {
+	Filename string
+	Name string
+}
+
 func checkSliceContains(slice []string,value string) bool{
 	for _,v := range slice{
 		if value == v || strings.Contains(v,value) || strings.HasPrefix(v,value){
@@ -60,9 +65,9 @@ func Search(file string,keyword string)  {
 	}
 }
 
-func ShowDetails(file string)  {
+func ShowDetails(file SearchResultStruct)  {
 	Data := new(SearchDataStruct)
-	yamlFile, err := ioutil.ReadFile(SearchDbDir+ utils.GetPathSeparator() + file)
+	yamlFile, err := ioutil.ReadFile(SearchDbDir+ utils.GetPathSeparator() + file.Filename)
 	utils.CheckErrorOnExit(err)
 	err = yaml.Unmarshal(yamlFile, Data)
 	utils.CheckErrorOnExit(err)
@@ -72,7 +77,7 @@ func ShowDetails(file string)  {
 	fmt.Println(Data.Data)
 }
 
-func SelectOneResult(fileList []string)  {
+func SelectOneResult(fileList []SearchResultStruct)  {
 	var(
 		i = 0
 		count int
@@ -83,7 +88,7 @@ func SelectOneResult(fileList []string)  {
 	}
 
 	for n,f := range fileList{
-		fmt.Println(n,") ",f)
+		fmt.Println(n,") ",f.Name)
 	}
 
 	count = len(fileList)
@@ -111,7 +116,7 @@ func getDataStruct(file string) (Data * DataStruct ){
 	return Data
 }
 
-func SearchDB(file string,keyword string) (yamlFile []string) {
+func SearchDB(file string,keyword string) (yamlFile []SearchResultStruct) {
 	Data := new(SearchDbStruct)
 	DbFile, err := ioutil.ReadFile(file)
 	utils.CheckErrorOnExit(err)
@@ -119,7 +124,10 @@ func SearchDB(file string,keyword string) (yamlFile []string) {
 	utils.CheckErrorOnExit(err)
 	for _,o := range Data.Data{
 		if checkSliceContains(o.Tags,keyword) {
-			yamlFile = append(yamlFile,o.File)
+			yamlFile = append(yamlFile, struct {
+				Filename string
+				Name     string
+			}{Filename: o.File, Name: o.Name})
 		}
 	}
 	return yamlFile
