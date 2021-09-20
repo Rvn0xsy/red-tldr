@@ -3,18 +3,30 @@ package pkg
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"os"
 	"red-tldr/utils"
 	"strings"
+	"github.com/gookit/color"
 )
 
 var (
 	SearchDbDir = ""
 	SearchDbName = ""
 )
+
+func init()  {
+	viper.SetConfigName("config")
+	viper.SetConfigType("toml")
+	viper.AddConfigPath(utils.GetConfigPath())
+	err := viper.ReadInConfig()
+	if err != nil {
+		utils.GenerateConfig()
+	}
+}
 
 func SetDbDir()  {
 	SearchDbDir = utils.GetDatabasePath() + string(os.PathSeparator)
@@ -65,16 +77,46 @@ func Search(file string,keyword string)  {
 	}
 }
 
+func ShowHighLightData(Data * SearchDataStruct){
+	if viper.GetBool("red-tldr.color"){
+		// Color
+		color.Style{color.Red, color.OpBold}.Println(Data.Name)
+		lines := strings.Split(Data.Data,"\n")
+		printColor := false
+		for _,line := range lines{
+			if strings.HasPrefix(line,"```"){
+				if printColor {
+					printColor = false
+					continue
+				}else{
+					fmt.Println()
+					printColor = true
+					continue
+				}
+			}
+			if printColor {
+				color.Style{color.Green, color.OpBold}.Println(line)
+				// color.Green.Println(line)
+				continue
+			}
+			fmt.Println(line)
+		}
+	}else{
+		fmt.Println("=================")
+		fmt.Println(Data.Name)
+		fmt.Println("=================")
+		fmt.Println(Data.Data)
+		return
+	}
+}
+
 func ShowDetails(file SearchResultStruct)  {
 	Data := new(SearchDataStruct)
 	yamlFile, err := ioutil.ReadFile(SearchDbDir+ utils.GetPathSeparator() + file.Filename)
 	utils.CheckErrorOnExit(err)
 	err = yaml.Unmarshal(yamlFile, Data)
 	utils.CheckErrorOnExit(err)
-	fmt.Println("=================")
-	fmt.Println(Data.Name)
-	fmt.Println("=================")
-	fmt.Println(Data.Data)
+	ShowHighLightData(Data)
 }
 
 func SelectOneResult(fileList []SearchResultStruct)  {

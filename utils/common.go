@@ -105,7 +105,7 @@ func GenerateConfig()  {
 	viper.SetDefault("red-tldr.path",GetDatabasePath())
 	viper.SetDefault("red-tldr.index-update",false)
 	viper.SetDefault("red-tldr.github-update",false)
-
+	viper.SetDefault("red-tldr.color",true)
 	CheckErrorOnExit(viper.WriteConfigAs(GetConfigFilePath()))
 	log.Println("[Generate Config Success, Config File Path : ",  GetConfigFilePath() ,"]")
 
