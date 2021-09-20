@@ -93,13 +93,15 @@ $ red-tldr upgrade
   index-update = false
   github-update = false
   path = ""
+  color = true
 ```
 
 |    配置项   | 描述 |  类型  |
 | ----------- | ----------- |  ----------- |
 | index-update| 数据库索引文件是否自动更新   |   Bool |
 | github-update   |  数据库文件是否从github自动更新 | Bool |
-| path  | 数据库文件存放路径 | string |
+| path  | 数据库文件存放路径 | String |
+| color | 高亮输出命令 | Bool |
 
 
 

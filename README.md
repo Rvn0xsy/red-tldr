@@ -93,6 +93,7 @@ Default configuration file path:`HOMEDIR/.red-tldr/config.toml`
   index-update = false
   github-update = false
   path = ""
+  color = true
 ```
 
 
@@ -100,7 +101,8 @@ Default configuration file path:`HOMEDIR/.red-tldr/config.toml`
 | ----------- | ----------- |  ----------- |
 | index-update| Whether the database index file is automatically updated   |   Bool |
 | github-update   |  Whether the database file is automatically updated from github | Bool |
-| path  | Database file storage path | string |
+| path  | Database file storage path | String |
+| color | Print highlight command | Bool |
 
 ## Contributing
 
