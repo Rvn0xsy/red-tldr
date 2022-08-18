@@ -3,6 +3,7 @@ package pkg
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gookit/color"
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -10,7 +11,6 @@ import (
 	"os"
 	"red-tldr/utils"
 	"strings"
-	"github.com/gookit/color"
 )
 
 var (
@@ -144,6 +144,17 @@ func SelectOneResult(fileList []SearchResultStruct)  {
 		i = count-1
 	}
 	ShowDetails(fileList[i])
+}
+
+
+// GetKeywordsTotal 获取关键字数量
+func GetKeywordsTotal() int{
+	Data := new(SearchDbStruct)
+	DbFile, err := ioutil.ReadFile(SearchDbName)
+	utils.CheckErrorOnExit(err)
+	err = json.Unmarshal(DbFile, Data)
+	utils.CheckErrorOnExit(err)
+	return len(Data.Data)
 }
 
 func getDataStruct(file string) (Data * DataStruct ){

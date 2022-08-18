@@ -33,7 +33,6 @@ func GetLatestReleaseFromGithub()  {
 	if err != nil{
 		panic(err)
 	}
-	utils.ShowBanner()
 	fmt.Println("[Updating Database version: ", strings.Trim(latest.Name," ") ,"]")
 	err = downloadReleaseAndUnzip(ctx, latest.ZipBallUrl)
 	if err != nil {

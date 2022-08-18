@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"github.com/spf13/viper"
 	"log"
 	"os"
@@ -11,14 +10,6 @@ import (
 )
 
 const (
-	 banner  = `
-         /\_/\
-    ____/ o o \   For Red Team [TL;DR]
-  /~____  =ø= /   Github @Rvn0xsy
- (______)__m_m)   Blog: https://payloads.online
-                  Version: 0.4.2
-------------------------------------------------
-Thank you for Use https://github.com/Rvn0xsy/red-tldr`
 	configName = "config.toml"
 	databaseName = string(os.PathSeparator) + "db" + string(os.PathSeparator) + "db.json"
 	configDir = string(os.PathSeparator) + ".red-tldr" + string(os.PathSeparator)
@@ -53,6 +44,7 @@ func GetConfigPath()(Dir string){
 func GetConfigFilePath()(configFilePath string){
 	return path.Join(GetConfigPath(), configName)
 }
+
 
 func GetDatabasePath()(databasePath string){
 	databasePath = viper.GetString("red-tldr.path")
@@ -124,15 +116,3 @@ func CheckErrorOnPrint(err error)  {
 	return
 }
 
-func ShowBanner()  {
-	fmt.Println(banner)
-}
-
-func ShowHelp()  {
-	ShowBanner()
-	fmt.Println(`
-Command:
-	<Keyword> [search keyword from database index]
-	update    [update database index]
-	upgrade   [update database from github https://github.com/Rvn0xsy/red-tldr-db]`)
-}
