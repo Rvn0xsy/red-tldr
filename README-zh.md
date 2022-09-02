@@ -33,6 +33,14 @@ $ cd red-tldr
 $ go build
 ```
 
+#### Arch Linux 安装
+
+```bash
+# yaourt 或者 yay https://aur.archlinux.org/packages/red-tldr
+$ sudo pacman -S red-tldr 
+```
+
+
 #### 二进制安装
 
 

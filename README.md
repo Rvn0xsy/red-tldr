@@ -36,6 +36,13 @@ $ cd red-tldr
 $ go build
 ```
 
+#### For Arch Linux
+
+```bash
+# yaourt or yay https://aur.archlinux.org/packages/red-tldr
+$ sudo pacman -S red-tldr 
+```
+
 #### For Binary
 
 Download [Release](https://github.com/Rvn0xsy/red-tldr/releases/) version.
