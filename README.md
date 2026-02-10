@@ -13,7 +13,7 @@ red-tldr is a lightweight text search tool, which is used to help red team staff
 
 ## Why Red Team TL;DR ?
 
-In my daily work, I need to memorize a lot of commands. Most of me only know the beginning of it. Human memory is limited. It is tedious to find what I want through search engines. I think we need a Linux-like one. `man` command.
+In my daily work, I need to memorize a lot of commands and often only remember the beginning of them. Human memory is limited. It is tedious to find what I want through search engines, so I think we need a Linux-like `man` command.
 
 ## Quick start
 
